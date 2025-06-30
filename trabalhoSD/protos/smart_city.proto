@@ -1,0 +1,58 @@
+// smart_city.proto
+syntax = "proto3";
+
+// Enum para os diferentes tipos de dispositivos
+enum DeviceType {
+  UNKNOWN = 0;
+  LAMP_POST = 1;
+  TRAFFIC_LIGHT = 2;
+  TEMP_SENSOR = 3;
+  AIR_SENSOR = 4;
+  CAMERA = 5;
+}
+
+// Mensagem para identificação do dispositivo
+message DeviceInfo {
+  string id = 1;
+  DeviceType type = 2;
+  string ip_address = 3;
+  int32 port = 4;
+}
+
+// Mensagem de Status (enviada por dispositivos)
+message StatusUpdate {
+  string device_id = 1;
+  oneof status {
+    bool is_on = 2;
+    float temperature = 3;
+    string state_info = 4;
+  }
+}
+
+// Mensagem de Comando (enviada pelo cliente/gateway)
+message Command {
+  string device_id = 1;
+  oneof action {
+    bool toggle = 2;
+    string new_config = 3;
+  }
+}
+
+// Mensagem para solicitar a lista de dispositivos
+message ListDevicesRequest {}
+
+// Mensagem com a lista de dispositivos
+message ListDevicesResponse {
+  repeated DeviceInfo devices = 1;
+}
+
+// Wrapper para todas as mensagens, facilitando o parse
+message WrapperMessage {
+  oneof msg {
+    DeviceInfo device_info = 1;
+    StatusUpdate status_update = 2;
+    Command command = 3;
+    ListDevicesRequest list_request = 4;
+    ListDevicesResponse list_response = 5;
+  }
+}
