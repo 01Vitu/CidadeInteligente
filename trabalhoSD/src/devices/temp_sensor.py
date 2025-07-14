@@ -1,4 +1,4 @@
-# src/devices/temp_sensor.py
+﻿# src/devices/temp_sensor.py
 # VERSÃO CORRETA E FINAL
 import socket
 import threading
