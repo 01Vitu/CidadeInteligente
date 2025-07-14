@@ -1,0 +1,27 @@
+# Terminal 1: GATEWAY
+cd C:\Users\Gold\Documents\CidadeInteligente-main\CidadeInteligente-main
+python -m src.gateway.gateway
+
+# Terminal 2: 
+cd C:\Users\Gold\Documents\CidadeInteligente-main\CidadeInteligente-main
+python -m src.devices.camera
+
+# Terminal 3: POSTE DE LUZ
+cd C:\Users\Gold\Documents\CidadeInteligente-main\CidadeInteligente-main
+python -m src.devices.lamp_post
+
+# Terminal 4: SEMÁFORO
+cd C:\Users\Gold\Documents\CidadeInteligente-main\CidadeInteligente-main
+python -m src.devices.traffic_light
+
+# Terminal 5: SENSOR DE TEMPERATURA
+cd C:\Users\Gold\Documents\CidadeInteligente-main\CidadeInteligente-main
+python -m src.devices.temp_sensor
+
+# Terminal 6: SENSOR DE AR
+cd C:\Users\Gold\Documents\CidadeInteligente-main\CidadeInteligente-main
+python -m src.devices.air_sensor
+
+# Terminal 7: CLIENTE (iniciar por último)
+cd C:\Users\Gold\Documents\CidadeInteligente-main\CidadeInteligente-main
+python -m src.client.client
